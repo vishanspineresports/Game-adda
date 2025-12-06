@@ -13,52 +13,53 @@ a { text-decoration: none; color: inherit; }
 /* Header */
 header {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 10px 40px; background:#1a1a1a; position: sticky; top:0; z-index:100;
+    padding: 10px 20px; background:#1a1a1a; position: sticky; top:0; z-index:100;
 }
 header img {
-    width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #ff0000;
+    width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #ff0000;
 }
 header .download-btn {
-    padding: 8px 20px; background: #ff0000; border: 2px solid #000; border-radius:8px; color:#fff; cursor:pointer; transition:0.3s;
+    padding: 6px 15px; background: #ff0000; border: 2px solid #000; border-radius:8px; color:#fff; cursor:pointer; transition:0.3s;
+    font-size:0.9em;
 }
 header .download-btn:hover { background:#ff3333; }
 
 /* Hero Section */
-.hero { text-align:center; padding:80px 20px; background: linear-gradient(135deg,#ff0000,#000);}
-.hero h1 { font-size:3em; margin-bottom:20px; }
-.hero p { font-size:1.2em; margin-bottom:40px; }
+.hero { text-align:center; padding:60px 15px; background: linear-gradient(135deg,#ff0000,#000);}
+.hero h1 { font-size:2.2em; margin-bottom:15px; }
+.hero p { font-size:1em; margin-bottom:30px; }
 
 /* Download buttons */
 .download-btn.highlighted {
-    background-color: #ff0000; color: #fff; padding: 15px 40px; font-size: 1.2em; border-radius:8px; border: 2px solid #000; display: inline-block; transition:0.3s;
+    background-color: #ff0000; color: #fff; padding: 12px 30px; font-size: 1em; border-radius:8px; border: 2px solid #000; display: inline-block; transition:0.3s;
 }
 .download-btn.highlighted:hover { background-color:#ff3333; }
 
 /* Section Titles */
-section { padding:60px 20px; text-align:center; }
-section h2 { font-size:2.5em; margin-bottom:30px; color:#ff0000; }
+section { padding:40px 15px; text-align:center; }
+section h2 { font-size:2em; margin-bottom:20px; color:#ff0000; }
 
 /* Features Section */
-.features { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
-.feature-card { background:#1a1a1a; padding:20px; width:250px; border-radius:10px; transition:.3s; }
+.features { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; }
+.feature-card { background:#1a1a1a; padding:15px; width:220px; border-radius:10px; transition:.3s; }
 .feature-card:hover { background:#ff0000; color:#fff; transform:translateY(-5px); }
-.feature-card h3 { margin-bottom:15px; color:#ff0000; }
+.feature-card h3 { margin-bottom:10px; color:#ff0000; }
 
 /* Slider Section */
-.slider-container { max-width: 600px; margin: 30px auto; text-align:center; position: relative; }
-.slider-title { font-size:2em; margin-bottom:20px; color:#ff0000; }
-.slider { width:561px; height:1028px; overflow:hidden; border:2px solid #ff0000; border-radius:10px; margin:auto; position: relative; }
+.slider-container { max-width: 100%; margin: 20px auto; text-align:center; position: relative; }
+.slider-title { font-size:1.8em; margin-bottom:15px; color:#ff0000; }
+.slider { width:100%; max-width:561px; height:auto; overflow:hidden; border:2px solid #ff0000; border-radius:10px; margin:auto; position: relative; }
 .slides { display:flex; transition: transform 0.5s ease-in-out; }
-.slide { width:561px; flex-shrink:0; }
-.slide img { width:561px; height:1028px; object-fit:cover; border-radius:10px; display:block; }
+.slide { flex-shrink:0; width:100%; }
+.slide img { width:100%; height:auto; border-radius:10px; display:block; }
 
 /* Slider Navigation Buttons */
 .prev, .next {
     position: absolute; top:50%; transform:translateY(-50%);
     background: rgba(0,0,0,0.5); color:#fff; border:none; font-size:2em; padding:5px 12px; cursor:pointer; border-radius:5px;
 }
-.prev { left:10px; }
-.next { right:10px; }
+.prev { left:5px; }
+.next { right:5px; }
 .prev:hover, .next:hover { background: rgba(255,0,0,0.8); }
 
 /* Slider Dots */
@@ -69,14 +70,28 @@ section h2 { font-size:2.5em; margin-bottom:30px; color:#ff0000; }
 .dot.active { background:#ff0000; }
 
 /* Footer */
-footer { background:#1a1a1a; padding:30px 20px; text-align:center; }
+footer { background:#1a1a1a; padding:20px 15px; text-align:center; }
 footer a { color:#ff0000; font-weight:bold; }
 
+/* Responsive Adjustments */
 @media(max-width:768px){
+    header { flex-direction: row; justify-content: space-between; padding:10px 15px; }
+    header img { width:50px; height:50px; }
+    header .download-btn { padding:5px 12px; font-size:0.8em; }
+    .hero h1 { font-size:1.8em; }
+    .hero p { font-size:0.9em; }
+    section h2 { font-size:1.5em; }
     .features { flex-direction:column; align-items:center; }
-    .slider-container { width:95%; }
-    .slider { width:95%; height:auto; }
+    .feature-card { width:90%; max-width:300px; }
+    .slider { max-width:95%; height:auto; }
     .slide img { width:100%; height:auto; }
+}
+
+@media(max-width:480px){
+    .hero h1 { font-size:1.5em; }
+    .hero p { font-size:0.85em; }
+    .download-btn.highlighted { font-size:0.9em; padding:10px 20px; }
+    .slider-title { font-size:1.4em; }
 }
 </style>
 </head>
@@ -166,7 +181,8 @@ function showSlide(n){
     else if(n < 0) slideIndex = slides.length - 1;
     else slideIndex = n;
 
-    const offset = -slideIndex * 561; // slide width fixed
+    const sliderWidth = document.querySelector('.slider').offsetWidth;
+    const offset = -slideIndex * sliderWidth;
     document.querySelector('.slides').style.transform = `translateX(${offset}px)`;
 
     dots.forEach(dot => dot.classList.remove('active'));
