@@ -45,12 +45,12 @@ section h2 { font-size:2.5em; margin-bottom:30px; color:#ff0000; }
 .feature-card h3 { margin-bottom:15px; color:#ff0000; }
 
 /* Slider Section */
-.slider-container { max-width: 800px; margin: 30px auto; text-align:center; position: relative; }
+.slider-container { max-width: 600px; margin: 30px auto; text-align:center; position: relative; }
 .slider-title { font-size:2em; margin-bottom:20px; color:#ff0000; }
-.slider { width:100%; height:400px; overflow:hidden; border:2px solid #ff0000; border-radius:10px; margin:auto; position: relative; }
+.slider { width:561px; height:1028px; overflow:hidden; border:2px solid #ff0000; border-radius:10px; margin:auto; position: relative; }
 .slides { display:flex; transition: transform 0.5s ease-in-out; }
-.slide { width:100%; flex-shrink:0; }
-.slide img { width:100%; height:100%; object-fit:cover; border-radius:10px; display:block; }
+.slide { width:561px; flex-shrink:0; }
+.slide img { width:561px; height:1028px; object-fit:cover; border-radius:10px; display:block; }
 
 /* Slider Navigation Buttons */
 .prev, .next {
@@ -75,7 +75,8 @@ footer a { color:#ff0000; font-weight:bold; }
 @media(max-width:768px){
     .features { flex-direction:column; align-items:center; }
     .slider-container { width:95%; }
-    .slider { height:300px; }
+    .slider { width:95%; height:auto; }
+    .slide img { width:100%; height:auto; }
 }
 </style>
 </head>
@@ -104,8 +105,8 @@ footer a { color:#ff0000; font-weight:bold; }
         <div class="slider">
             <div class="slides">
                 <div class="slide"><img src="Image1.png" alt="App Screenshot 1"></div>
-                <div class="slide"><img src="images2.png" alt="App Screenshot 2"></div>
-                <div class="slide"><img src="images3.png" alt="App Screenshot 3"></div>
+                <div class="slide"><img src="Image2.png" alt="App Screenshot 2"></div>
+                <div class="slide"><img src="Image3.png" alt="App Screenshot 3"></div>
             </div>
 
             <!-- Navigation Buttons -->
@@ -165,8 +166,8 @@ function showSlide(n){
     else if(n < 0) slideIndex = slides.length - 1;
     else slideIndex = n;
 
-    const offset = -slideIndex * 100;
-    document.querySelector('.slides').style.transform = `translateX(${offset}%)`;
+    const offset = -slideIndex * 561; // slide width fixed
+    document.querySelector('.slides').style.transform = `translateX(${offset}px)`;
 
     dots.forEach(dot => dot.classList.remove('active'));
     dots[slideIndex].classList.add('active');
